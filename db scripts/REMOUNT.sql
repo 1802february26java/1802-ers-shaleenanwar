@@ -1,12 +1,9 @@
-/* Calls al SQL Files for ERS database. */
-
-CONNECT SYSTEM/admin;
-
 /********** Drop and Create Database **********/
+/********** Execute this in your administrator user RDS *********/
 DROP USER REIMBURSEMENT_DB CASCADE;
 
 CREATE USER REIMBURSEMENT_DB IDENTIFIED BY p4ssw0rd;
-GRANT CONNECT, RESOURCE TO REIMBURSEMENT_DB;
+GRANT DBA TO REIMBURSEMENT_DB WITH ADMIN OPTION;
 
 DISCONNECT;
 

@@ -158,8 +158,8 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			String command = "SELECT * USER_T INNER JOIN USER_ROLE ON USER_T.UR_ID = USER_ROLE.UR_ID";
 			PreparedStatement statement = connection.prepareStatement(command);
+			
 			ResultSet result = statement.executeQuery();
-
 			Set<Employee> employeeSet = new HashSet<>();
 			while(result.next()) {
 				employeeSet.add(new Employee(

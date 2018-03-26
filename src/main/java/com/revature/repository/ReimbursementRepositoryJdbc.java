@@ -51,13 +51,12 @@ public class ReimbursementRepositoryJdbc implements ReimbursementRepository {
 	public boolean insert(Reimbursement reimbursement) {
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			int statementIndex = 0;
-			String command = "INSERT INTO REIMBURSEMENT VALUES(NULL,?,?,?,?, NULL,?,?,?,?)";
+			String command = "INSERT INTO REIMBURSEMENT VALUES(NULL, CURRENT_TIMESTAMP,NULL,?,?, NULL,?,?,?,?)";
 
 			PreparedStatement statement = connection.prepareStatement(command);
 
 			//Set attributes to be inserted
-			statement.setTimestamp(++statementIndex, Timestamp.valueOf(reimbursement.getRequested()));
-			statement.setTimestamp(++statementIndex, Timestamp.valueOf(reimbursement.getResolved()));
+
 			statement.setDouble(++statementIndex, reimbursement.getAmount());
 			statement.setString(++statementIndex, reimbursement.getDescription()); 
 //			statement.setBlob(++statementIndex, (Blob) reimbursement.getReciept());
@@ -80,12 +79,11 @@ public class ReimbursementRepositoryJdbc implements ReimbursementRepository {
 	public boolean update(Reimbursement reimbursement) {
 		try (Connection connection = ConnectionUtil.getConnection()){	
 			int statementIndex = 0;
-			String command = "UPDATE REIMBURSEMENT SET R_RESOLVED = ?, MANAGER_ID = ?, RS_ID WHERE R_ID = ?";
+			String command = "UPDATE REIMBURSEMENT SET R_RESOLVED = CURRENT_TIMESTAMP, MANAGER_ID = ?, RS_ID WHERE R_ID = ?";
 
 			PreparedStatement statement = connection.prepareStatement(command);
 
 			//Set attributes to be inserted
-			statement.setTimestamp(++statementIndex, Timestamp.valueOf(reimbursement.getResolved()));
 			statement.setInt(++statementIndex, reimbursement.getRequester().getId());
 			statement.setInt(++statementIndex, reimbursement.getApprover().getId());
 			statement.setInt(++statementIndex, reimbursement.getStatus().getId());
@@ -334,11 +332,11 @@ public class ReimbursementRepositoryJdbc implements ReimbursementRepository {
 						result.getInt("RT_ID"),
 						result.getString("RT_TYPE")
 						));
-				logger.trace("Successfully selected reimbursement request by reimbursement type");
+				logger.trace("Successfully selected reimbursement type");
 			}
 			return reimbursementTypes;
 		} catch (SQLException e) {
-			logger.warn("Exception selecting reimbursement request by reimbursement type", e);
+			logger.warn("Exception selecting reimbursement type", e);
 		} 
 		return new HashSet<>();
 	}

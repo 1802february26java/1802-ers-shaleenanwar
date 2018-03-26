@@ -64,13 +64,12 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 	public boolean update(Employee employee) {
 		try (Connection connection = ConnectionUtil.getConnection())
 		{
-			final String command = "UPDATE USER_T SET U_FIRSTNAME = ?, U_LASTNAME = ? , U_PASSWORD = ?, U_EMAIL = ?, UR_ID = ? WHERE U_ID =  ?";
+			final String command = "UPDATE USER_T SET U_FIRSTNAME = ?, U_LASTNAME = ? , U_EMAIL = ?, UR_ID = ? WHERE U_ID =  ?";
 			PreparedStatement statement = connection.prepareStatement(command);
 			int statementIndex = 0;
 
 			statement.setString(++statementIndex, employee.getFirstName().toUpperCase());
 			statement.setString(++statementIndex, employee.getLastName().toUpperCase());
-			statement.setString(++statementIndex, employee.getPassword());
 			statement.setString(++statementIndex, employee.getEmail().toLowerCase());
 			statement.setInt(++statementIndex, employee.getEmployeeRole().getId());
 			statement.setInt(++statementIndex, employee.getId());
@@ -106,8 +105,8 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 				return new Employee(
 
 				result.getInt("U_ID"),
-				result.getString("U_FIRST_NAME"),
-				result.getString("U_LAST_NAME"),
+				result.getString("U_FIRSTNAME"),
+				result.getString("U_LASTNAME"),
 				result.getString("U_USERNAME"),
 				result.getString("U_PASSWORD"),
 				result.getString("U_EMAIL"),
@@ -121,7 +120,7 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 		} catch (SQLException e) {
 			logger.warn("Exception selecting Employee by ID", e);
 		}
-		return new Employee();
+		return null;
 	}
 	@Override
 	public Employee select(String username) {
@@ -135,8 +134,8 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 			while(result.next()) {
 				return new Employee(
 						result.getInt("U_ID"),
-						result.getString("U_FIRST_NAME"),
-						result.getString("U_LAST_NAME"),
+						result.getString("U_FIRSTNAME"),
+						result.getString("U_LASTNAME"),
 						result.getString("U_USERNAME"),
 						result.getString("U_PASSWORD"),
 						result.getString("U_EMAIL"),
@@ -150,13 +149,13 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 		} catch (SQLException e) {
 			logger.warn("Exception selecting Employee by ID", e);
 		}
-		return new Employee();
+		return null;
 	}
 
 	@Override
 	public Set<Employee> selectAll() {
 		try(Connection connection = ConnectionUtil.getConnection()) {
-			String command = "SELECT * USER_T INNER JOIN USER_ROLE ON USER_T.UR_ID = USER_ROLE.UR_ID";
+			String command = "SELECT * FROM USER_T INNER JOIN USER_ROLE ON USER_T.UR_ID = USER_ROLE.UR_ID";
 			PreparedStatement statement = connection.prepareStatement(command);
 			
 			ResultSet result = statement.executeQuery();
@@ -180,7 +179,7 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 		} catch (SQLException e) {
 			logger.warn("Exception selecting all employees", e);
 		} 
-		return new HashSet<>();
+		return null;
 	}
 
 
@@ -188,7 +187,7 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 	public String getPasswordHash(Employee employee) {
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			int statementIndex = 0;
-			String command = "SELECT GET_CUSTOMER_HASH(?,?) AS HASH FROM DUAL";
+			String command = "SELECT GET_HASH(?) AS HASH FROM DUAL";
 			PreparedStatement statement = connection.prepareStatement(command);
 			statement.setString(++statementIndex, employee.getPassword());
 			ResultSet result = statement.executeQuery();
@@ -220,13 +219,23 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-//	public static void main(String[] args) {
-//	EmployeeRepository repository = new EmployeeRepositoryJdbc();
-//	EmployeeRole employeerole = new EmployeeRole("employee");
-//	
-//	//Testing Insert
-//	repository.insert(new Employee(0, "Shaleen", "Anwar", "sanwar","cookies","shaleen.anwar@gmail.com", employeerole));
-//}
 
+	
+
+//	public static void main(String[] args) {
+//		EmployeeRepository repository = EmployeeRepositoryJdbc.getInstance();
+//		EmployeeRole employeeRole = new EmployeeRole(1, "EMPLOYEE");
+//
+//		Employee employee = new Employee(101,"Miley","Cyrus","mileycyrus","p4ssw0rd", "miley@gmail.com",employeeRole);
+//
+//		
+//			logger.trace(repository.insert(employee));
+//			employee.setEmail("new.example@gmail.com");
+//			logger.trace(repository.update(employee));
+//			logger.trace(repository.select(employee.getId()).toString());
+//			logger.trace(repository.select("mileycyrus").toString());
+//			logger.trace(repository.selectAll());
+//			logger.trace(repository.getPasswordHash(employee));
+//
+//}
 }

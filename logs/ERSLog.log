@@ -75,3 +75,221 @@ java.sql.SQLIntegrityConstraintViolationException: ORA-02291: integrity constrai
 	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:1361)
 	at com.revature.repository.EmployeeRepositoryJdbc.insert(EmployeeRepositoryJdbc.java:53)
 	at com.revature.repository.EmployeeRepositoryJdbc.main(EmployeeRepositoryJdbc.java:230)
+2018-03-25 21:18:24 INFO  ConnectionUtil:38 - Connection successful
+2018-03-25 21:25:03 TRACE EmployeeRepositoryJdbc:54 - Successfully inserted new employee
+2018-03-25 21:28:49 WARN  EmployeeRepositoryJdbc:58 - Exception inserting a new employee
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (REIMBURSEMENT_DB.UNQ_USERNAME) violated
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:215)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:58)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:943)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1075)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3820)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:3897)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:1361)
+	at com.revature.repository.EmployeeRepositoryJdbc.insert(EmployeeRepositoryJdbc.java:52)
+	at com.revature.repository.EmployeeRepositoryJdbc.main(EmployeeRepositoryJdbc.java:227)
+2018-03-25 21:28:49 TRACE EmployeeRepositoryJdbc:236 - 412AA8E4CA384E9ED61CE8B3FDBCF022
+2018-03-25 21:29:38 TRACE EmployeeRepositoryJdbc:236 - 412AA8E4CA384E9ED61CE8B3FDBCF022
+2018-03-25 21:30:52 TRACE EmployeeRepositoryJdbc:120 - Successful Employee selection by employeee ID
+2018-03-25 21:30:52 TRACE EmployeeRepositoryJdbc:233 - Employee [id=0, firstName=null, lastName=null, username=null, password=null, email=null, userRole=null]
+2018-03-25 21:30:52 WARN  EmployeeRepositoryJdbc:151 - Exception selecting Employee by ID
+java.sql.SQLException: Invalid column name
+	at oracle.jdbc.driver.OracleStatement.getColumnIndex(OracleStatement.java:3965)
+	at oracle.jdbc.driver.InsensitiveScrollableResultSet.findColumn(InsensitiveScrollableResultSet.java:299)
+	at oracle.jdbc.driver.GeneratedResultSet.getString(GeneratedResultSet.java:1460)
+	at com.revature.repository.EmployeeRepositoryJdbc.select(EmployeeRepositoryJdbc.java:138)
+	at com.revature.repository.EmployeeRepositoryJdbc.main(EmployeeRepositoryJdbc.java:234)
+2018-03-25 21:30:52 TRACE EmployeeRepositoryJdbc:234 - Employee [id=0, firstName=null, lastName=null, username=null, password=null, email=null, userRole=null]
+2018-03-25 21:31:22 TRACE EmployeeRepositoryJdbc:120 - Successful Employee selection by employeee ID
+2018-03-25 21:31:22 TRACE EmployeeRepositoryJdbc:233 - Employee [id=0, firstName=null, lastName=null, username=null, password=null, email=null, userRole=null]
+2018-03-25 21:33:12 WARN  EmployeeRepositoryJdbc:151 - Exception selecting Employee by ID
+java.sql.SQLException: Invalid column name
+	at oracle.jdbc.driver.OracleStatement.getColumnIndex(OracleStatement.java:3965)
+	at oracle.jdbc.driver.InsensitiveScrollableResultSet.findColumn(InsensitiveScrollableResultSet.java:299)
+	at oracle.jdbc.driver.GeneratedResultSet.getString(GeneratedResultSet.java:1460)
+	at com.revature.repository.EmployeeRepositoryJdbc.select(EmployeeRepositoryJdbc.java:138)
+	at com.revature.repository.EmployeeRepositoryJdbc.main(EmployeeRepositoryJdbc.java:234)
+2018-03-25 21:33:12 TRACE EmployeeRepositoryJdbc:234 - Employee [id=0, firstName=null, lastName=null, username=null, password=null, email=null, userRole=null]
+2018-03-25 21:33:41 WARN  EmployeeRepositoryJdbc:58 - Exception inserting a new employee
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (REIMBURSEMENT_DB.UNQ_USERNAME) violated
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:215)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:58)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:943)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1075)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3820)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:3897)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:1361)
+	at com.revature.repository.EmployeeRepositoryJdbc.insert(EmployeeRepositoryJdbc.java:52)
+	at com.revature.repository.EmployeeRepositoryJdbc.main(EmployeeRepositoryJdbc.java:230)
+2018-03-25 21:33:41 TRACE EmployeeRepositoryJdbc:230 - false
+2018-03-25 21:34:09 WARN  EmployeeRepositoryJdbc:58 - Exception inserting a new employee
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (REIMBURSEMENT_DB.UNQ_USERNAME) violated
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:215)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:58)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:943)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1075)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3820)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:3897)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:1361)
+	at com.revature.repository.EmployeeRepositoryJdbc.insert(EmployeeRepositoryJdbc.java:52)
+	at com.revature.repository.EmployeeRepositoryJdbc.main(EmployeeRepositoryJdbc.java:230)
+2018-03-25 21:34:09 TRACE EmployeeRepositoryJdbc:230 - false
+2018-03-25 21:35:06 WARN  EmployeeRepositoryJdbc:151 - Exception selecting Employee by ID
+java.sql.SQLException: Invalid column name
+	at oracle.jdbc.driver.OracleStatement.getColumnIndex(OracleStatement.java:3965)
+	at oracle.jdbc.driver.InsensitiveScrollableResultSet.findColumn(InsensitiveScrollableResultSet.java:299)
+	at oracle.jdbc.driver.GeneratedResultSet.getString(GeneratedResultSet.java:1460)
+	at com.revature.repository.EmployeeRepositoryJdbc.select(EmployeeRepositoryJdbc.java:138)
+	at com.revature.repository.EmployeeRepositoryJdbc.main(EmployeeRepositoryJdbc.java:234)
+2018-03-25 21:35:06 TRACE EmployeeRepositoryJdbc:234 - Employee [id=0, firstName=null, lastName=null, username=null, password=null, email=null, userRole=null]
+2018-03-25 21:37:20 TRACE EmployeeRepositoryJdbc:120 - Successful Employee selection by employeee ID
+2018-03-25 21:37:20 TRACE EmployeeRepositoryJdbc:234 - Employee [id=0, firstName=null, lastName=null, username=null, password=null, email=null, userRole=null]
+2018-03-25 21:37:21 WARN  EmployeeRepositoryJdbc:151 - Exception selecting Employee by ID
+java.sql.SQLException: Invalid column name
+	at oracle.jdbc.driver.OracleStatement.getColumnIndex(OracleStatement.java:3965)
+	at oracle.jdbc.driver.InsensitiveScrollableResultSet.findColumn(InsensitiveScrollableResultSet.java:299)
+	at oracle.jdbc.driver.GeneratedResultSet.getString(GeneratedResultSet.java:1460)
+	at com.revature.repository.EmployeeRepositoryJdbc.select(EmployeeRepositoryJdbc.java:138)
+	at com.revature.repository.EmployeeRepositoryJdbc.main(EmployeeRepositoryJdbc.java:235)
+2018-03-25 21:37:21 TRACE EmployeeRepositoryJdbc:235 - Employee [id=0, firstName=null, lastName=null, username=null, password=null, email=null, userRole=null]
+2018-03-25 21:38:43 WARN  EmployeeRepositoryJdbc:151 - Exception selecting Employee by ID
+java.sql.SQLException: Invalid column name
+	at oracle.jdbc.driver.OracleStatement.getColumnIndex(OracleStatement.java:3965)
+	at oracle.jdbc.driver.InsensitiveScrollableResultSet.findColumn(InsensitiveScrollableResultSet.java:299)
+	at oracle.jdbc.driver.GeneratedResultSet.getString(GeneratedResultSet.java:1460)
+	at com.revature.repository.EmployeeRepositoryJdbc.select(EmployeeRepositoryJdbc.java:138)
+	at com.revature.repository.EmployeeRepositoryJdbc.main(EmployeeRepositoryJdbc.java:235)
+2018-03-25 21:38:43 TRACE EmployeeRepositoryJdbc:235 - Employee [id=0, firstName=null, lastName=null, username=null, password=null, email=null, userRole=null]
+2018-03-25 21:40:50 TRACE EmployeeRepositoryJdbc:129 - Selecting employee
+2018-03-25 21:40:50 TRACE EmployeeRepositoryJdbc:241 - Employee [id=81, firstName=JAMES, lastName=KEMPF, username=jamesk4321, password=412AA8E4CA384E9ED61CE8B3FDBCF022, email=example@gmail.com, userRole=EmployeeRole [id=2, type=MANAGER]]
+2018-03-25 21:41:45 TRACE EmployeeRepositoryJdbc:120 - Successful Employee selection by employeee ID
+2018-03-25 21:41:45 TRACE EmployeeRepositoryJdbc:240 - Employee [id=0, firstName=null, lastName=null, username=null, password=null, email=null, userRole=null]
+2018-03-25 21:42:27 TRACE EmployeeRepositoryJdbc:120 - Successful Employee selection by employeee ID
+2018-03-25 21:42:27 TRACE EmployeeRepositoryJdbc:240 - Employee [id=0, firstName=null, lastName=null, username=null, password=null, email=null, userRole=null]
+2018-03-25 21:42:27 TRACE EmployeeRepositoryJdbc:184 - Successfully selected all employees
+2018-03-25 21:42:27 TRACE EmployeeRepositoryJdbc:242 - [Employee [id=1, firstName=Peter, lastName=Alagna, username=palagnajr, password=1234, email=peter.alagna@revature.com, userRole=EmployeeRole [id=2, type=MANAGER]], Employee [id=81, firstName=JAMES, lastName=KEMPF, username=jamesk4321, password=412AA8E4CA384E9ED61CE8B3FDBCF022, email=example@gmail.com, userRole=EmployeeRole [id=2, type=MANAGER]], Employee [id=61, firstName=Raida, lastName=Anwar, username=ranwar, password=3373DCA735093C317BCA2D31E592655E, email=raida.anwar@gmail.com, userRole=EmployeeRole [id=1, type=EMPLOYEE]], Employee [id=42, firstName=Shay, lastName=Anwar, username=sanwar, password=cookies, email=shaleen.emgir.anwar@gmail.com, userRole=EmployeeRole [id=1, type=EMPLOYEE]]]
+2018-03-25 21:46:33 TRACE EmployeeRepositoryJdbc:120 - Successful Employee selection by employeee ID
+2018-03-25 21:46:33 TRACE EmployeeRepositoryJdbc:240 - Employee [id=0, firstName=null, lastName=null, username=null, password=null, email=null, userRole=null]
+2018-03-25 21:46:34 TRACE EmployeeRepositoryJdbc:184 - Successfully selected all employees
+2018-03-25 21:46:34 TRACE EmployeeRepositoryJdbc:242 - [Employee [id=1, firstName=Peter, lastName=Alagna, username=palagnajr, password=1234, email=peter.alagna@revature.com, userRole=EmployeeRole [id=2, type=MANAGER]], Employee [id=81, firstName=JAMES, lastName=KEMPF, username=jamesk4321, password=412AA8E4CA384E9ED61CE8B3FDBCF022, email=example@gmail.com, userRole=EmployeeRole [id=2, type=MANAGER]], Employee [id=61, firstName=Raida, lastName=Anwar, username=ranwar, password=3373DCA735093C317BCA2D31E592655E, email=raida.anwar@gmail.com, userRole=EmployeeRole [id=1, type=EMPLOYEE]], Employee [id=42, firstName=Shay, lastName=Anwar, username=sanwar, password=cookies, email=shaleen.emgir.anwar@gmail.com, userRole=EmployeeRole [id=1, type=EMPLOYEE]]]
+2018-03-25 21:50:29 TRACE EmployeeRepositoryJdbc:30 - Inserting new employee
+2018-03-25 21:50:30 TRACE EmployeeRepositoryJdbc:233 - true
+2018-03-25 21:51:42 TRACE EmployeeRepositoryJdbc:59 - Updating employee
+2018-03-25 21:51:43 ERROR EmployeeRepositoryJdbc:81 - Exception thrown while updating employee
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (REIMBURSEMENT_DB.UNQ_USERNAME) violated
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:215)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:58)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:943)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1075)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3820)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:3897)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:1361)
+	at com.revature.repository.EmployeeRepositoryJdbc.update(EmployeeRepositoryJdbc.java:79)
+	at com.revature.repository.EmployeeRepositoryJdbc.main(EmployeeRepositoryJdbc.java:235)
+2018-03-25 21:51:43 TRACE EmployeeRepositoryJdbc:235 - false
+2018-03-25 21:53:49 TRACE EmployeeRepositoryJdbc:122 - Selecting employee
+2018-03-25 21:53:50 TRACE EmployeeRepositoryJdbc:237 - Employee [id=81, firstName=JAMES, lastName=KEMPF, username=jamesk4321, password=412AA8E4CA384E9ED61CE8B3FDBCF022, email=example@gmail.com, userRole=EmployeeRole [id=2, type=MANAGER]]
+2018-03-26 10:42:48 TRACE EmployeeRepositoryJdbc:54 - Successfully inserted new employee
+2018-03-26 10:42:48 TRACE EmployeeRepositoryJdbc:233 - true
+2018-03-26 10:45:15 TRACE EmployeeRepositoryJdbc:235 - false
+2018-03-26 10:46:42 TRACE EmployeeRepositoryJdbc:235 - false
+2018-03-26 10:47:06 TRACE EmployeeRepositoryJdbc:235 - false
+2018-03-26 10:47:32 TRACE EmployeeRepositoryJdbc:235 - false
+2018-03-26 10:49:42 TRACE EmployeeRepositoryJdbc:235 - false
+2018-03-26 10:50:29 TRACE EmployeeRepositoryJdbc:235 - false
+2018-03-26 11:21:26 TRACE EmployeeRepositoryJdbc:80 - Successfully updated employee
+2018-03-26 11:21:26 TRACE EmployeeRepositoryJdbc:235 - true
+2018-03-26 11:28:25 WARN  EmployeeRepositoryJdbc:121 - Exception selecting Employee by ID
+java.sql.SQLException: Invalid column name
+	at oracle.jdbc.driver.OracleStatement.getColumnIndex(OracleStatement.java:3965)
+	at oracle.jdbc.driver.InsensitiveScrollableResultSet.findColumn(InsensitiveScrollableResultSet.java:299)
+	at oracle.jdbc.driver.GeneratedResultSet.getString(GeneratedResultSet.java:1460)
+	at com.revature.repository.EmployeeRepositoryJdbc.select(EmployeeRepositoryJdbc.java:108)
+	at com.revature.repository.EmployeeRepositoryJdbc.main(EmployeeRepositoryJdbc.java:235)
+2018-03-26 11:28:25 TRACE EmployeeRepositoryJdbc:235 - Employee [id=0, firstName=null, lastName=null, username=null, password=null, email=null, userRole=null]
+2018-03-26 11:28:26 WARN  EmployeeRepositoryJdbc:150 - Exception selecting Employee by ID
+java.sql.SQLException: Invalid column name
+	at oracle.jdbc.driver.OracleStatement.getColumnIndex(OracleStatement.java:3965)
+	at oracle.jdbc.driver.InsensitiveScrollableResultSet.findColumn(InsensitiveScrollableResultSet.java:299)
+	at oracle.jdbc.driver.GeneratedResultSet.getString(GeneratedResultSet.java:1460)
+	at com.revature.repository.EmployeeRepositoryJdbc.select(EmployeeRepositoryJdbc.java:137)
+	at com.revature.repository.EmployeeRepositoryJdbc.main(EmployeeRepositoryJdbc.java:236)
+2018-03-26 11:28:26 TRACE EmployeeRepositoryJdbc:236 - Employee [id=0, firstName=null, lastName=null, username=null, password=null, email=null, userRole=null]
+2018-03-26 11:31:25 WARN  EmployeeRepositoryJdbc:121 - Exception selecting Employee by ID
+java.sql.SQLException: Invalid column name
+	at oracle.jdbc.driver.OracleStatement.getColumnIndex(OracleStatement.java:3965)
+	at oracle.jdbc.driver.InsensitiveScrollableResultSet.findColumn(InsensitiveScrollableResultSet.java:299)
+	at oracle.jdbc.driver.GeneratedResultSet.getString(GeneratedResultSet.java:1460)
+	at com.revature.repository.EmployeeRepositoryJdbc.select(EmployeeRepositoryJdbc.java:108)
+	at com.revature.repository.EmployeeRepositoryJdbc.main(EmployeeRepositoryJdbc.java:235)
+2018-03-26 11:31:25 TRACE EmployeeRepositoryJdbc:235 - Employee [id=0, firstName=null, lastName=null, username=null, password=null, email=null, userRole=null]
+2018-03-26 11:35:10 TRACE EmployeeRepositoryJdbc:235 - Employee [id=101, firstName=MILEY, lastName=CYRUS, username=mileycyrus, password=p4ssw0rd, email=new.example@gmail.com, userRole=EmployeeRole [id=1, type=EMPLOYEE]]
+2018-03-26 11:35:50 TRACE EmployeeRepositoryJdbc:236 - Employee [id=101, firstName=MILEY, lastName=CYRUS, username=mileycyrus, password=p4ssw0rd, email=new.example@gmail.com, userRole=EmployeeRole [id=1, type=EMPLOYEE]]
+2018-03-26 11:36:04 WARN  EmployeeRepositoryJdbc:180 - Exception selecting all employees
+java.sql.SQLSyntaxErrorException: ORA-00923: FROM keyword not found where expected
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:215)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:58)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:776)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:897)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1034)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3820)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:3867)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeQuery(OraclePreparedStatementWrapper.java:1502)
+	at com.revature.repository.EmployeeRepositoryJdbc.selectAll(EmployeeRepositoryJdbc.java:161)
+	at com.revature.repository.EmployeeRepositoryJdbc.main(EmployeeRepositoryJdbc.java:237)
+2018-03-26 11:36:04 TRACE EmployeeRepositoryJdbc:237 - []
+2018-03-26 11:37:01 TRACE EmployeeRepositoryJdbc:177 - Successfully selected all employees
+2018-03-26 11:37:01 TRACE EmployeeRepositoryJdbc:237 - [Employee [id=101, firstName=MILEY, lastName=CYRUS, username=mileycyrus, password=p4ssw0rd, email=new.example@gmail.com, userRole=EmployeeRole [id=1, type=EMPLOYEE]], Employee [id=1, firstName=Peter, lastName=Alagna, username=palagnajr, password=1234, email=peter.alagna@revature.com, userRole=EmployeeRole [id=2, type=MANAGER]], Employee [id=85, firstName=Afifa, lastName=Khan, username=afifa4321, password=412AA8E4CA384E9ED61CE8B3FDBCF022, email=example1@gmail.com, userRole=EmployeeRole [id=2, type=MANAGER]], Employee [id=81, firstName=JAMES, lastName=KEMPF, username=jamesk4321, password=412AA8E4CA384E9ED61CE8B3FDBCF022, email=example@gmail.com, userRole=EmployeeRole [id=2, type=MANAGER]], Employee [id=42, firstName=Shay, lastName=Anwar, username=sanwar, password=cookies, email=shaleen.emgir.anwar@gmail.com, userRole=EmployeeRole [id=1, type=EMPLOYEE]], Employee [id=61, firstName=Raida, lastName=Anwar, username=ranwar, password=3373DCA735093C317BCA2D31E592655E, email=raida.anwar@gmail.com, userRole=EmployeeRole [id=1, type=EMPLOYEE]]]
+2018-03-26 11:37:24 WARN  EmployeeRepositoryJdbc:200 - Exception getting employee password hash
+java.sql.SQLException: Missing IN or OUT parameter at index:: 2
+	at oracle.jdbc.driver.OraclePreparedStatement.processCompletedBindRow(OraclePreparedStatement.java:1878)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3815)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:3867)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeQuery(OraclePreparedStatementWrapper.java:1502)
+	at com.revature.repository.EmployeeRepositoryJdbc.getPasswordHash(EmployeeRepositoryJdbc.java:193)
+	at com.revature.repository.EmployeeRepositoryJdbc.main(EmployeeRepositoryJdbc.java:238)
+2018-03-26 11:37:24 TRACE EmployeeRepositoryJdbc:238 - 
+2018-03-26 11:38:36 WARN  EmployeeRepositoryJdbc:200 - Exception getting employee password hash
+java.sql.SQLException: Invalid column name
+	at oracle.jdbc.driver.OracleStatement.getColumnIndex(OracleStatement.java:3965)
+	at oracle.jdbc.driver.InsensitiveScrollableResultSet.findColumn(InsensitiveScrollableResultSet.java:299)
+	at oracle.jdbc.driver.GeneratedResultSet.getString(GeneratedResultSet.java:1460)
+	at com.revature.repository.EmployeeRepositoryJdbc.getPasswordHash(EmployeeRepositoryJdbc.java:196)
+	at com.revature.repository.EmployeeRepositoryJdbc.main(EmployeeRepositoryJdbc.java:238)
+2018-03-26 11:38:36 TRACE EmployeeRepositoryJdbc:238 - 
+2018-03-26 11:39:04 TRACE EmployeeRepositoryJdbc:238 - 412AA8E4CA384E9ED61CE8B3FDBCF022

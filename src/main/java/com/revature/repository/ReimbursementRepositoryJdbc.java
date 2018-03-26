@@ -5,11 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
 
+import com.revature.model.Employee;
+import com.revature.model.EmployeeRole;
 import com.revature.model.Reimbursement;
 import com.revature.model.ReimbursementStatus;
 import com.revature.model.ReimbursementType;
@@ -51,7 +54,7 @@ public class ReimbursementRepositoryJdbc implements ReimbursementRepository {
 	public boolean insert(Reimbursement reimbursement) {
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			int statementIndex = 0;
-			String command = "INSERT INTO REIMBURSEMENT VALUES(NULL, CURRENT_TIMESTAMP,NULL,?,?, NULL,?,?,?,?)";
+			String command = "INSERT INTO REIMBURSEMENT VALUES(NULL, CURRENT_TIMESTAMP,NULL,?,?, NULL,?,NULL,?,?)";
 
 			PreparedStatement statement = connection.prepareStatement(command);
 
@@ -61,9 +64,9 @@ public class ReimbursementRepositoryJdbc implements ReimbursementRepository {
 			statement.setString(++statementIndex, reimbursement.getDescription()); 
 //			statement.setBlob(++statementIndex, (Blob) reimbursement.getReciept());
 			statement.setInt(++statementIndex, reimbursement.getRequester().getId());
-			statement.setInt(++statementIndex, reimbursement.getApprover().getId());
 			statement.setInt(++statementIndex, reimbursement.getStatus().getId());
 			statement.setInt(++statementIndex, reimbursement.getType().getId());
+			
 			
 			if(statement.executeUpdate() > 0) {
 				
@@ -79,14 +82,14 @@ public class ReimbursementRepositoryJdbc implements ReimbursementRepository {
 	public boolean update(Reimbursement reimbursement) {
 		try (Connection connection = ConnectionUtil.getConnection()){	
 			int statementIndex = 0;
-			String command = "UPDATE REIMBURSEMENT SET R_RESOLVED = CURRENT_TIMESTAMP, MANAGER_ID = ?, RS_ID WHERE R_ID = ?";
+			String command = "UPDATE REIMBURSEMENT SET R_RESOLVED = CURRENT_TIMESTAMP,  RS_ID = ? WHERE R_ID = ?";
 
 			PreparedStatement statement = connection.prepareStatement(command);
 
 			//Set attributes to be inserted
-			statement.setInt(++statementIndex, reimbursement.getRequester().getId());
-			statement.setInt(++statementIndex, reimbursement.getApprover().getId());
+			
 			statement.setInt(++statementIndex, reimbursement.getStatus().getId());
+			statement.setInt(++statementIndex, reimbursement.getId());
 			
 			if ( statement.executeUpdate() != 0 )
 			{
@@ -340,4 +343,28 @@ public class ReimbursementRepositoryJdbc implements ReimbursementRepository {
 		} 
 		return new HashSet<>();
 	}
+
+//	public static void main(String[] args) {
+//		ReimbursementRepository repository = ReimbursementRepositoryJdbc.getInstance();
+//		EmployeeRole employeeRole = new EmployeeRole(1, "EMPLOYEE");
+//		Employee employee = new Employee(101,"Miley","Cyrus","mileycyrus","p4ssw0rd", "miley@gmail.com",employeeRole);
+//		ReimbursementStatus rs = new ReimbursementStatus(1,"PENDING");
+//		ReimbursementType rt = new ReimbursementType(1,"OTHER");
+//		Reimbursement r = new Reimbursement(61,LocalDateTime.now(),null,10,"Sample",employee,null,rs,rt);
+//		
+//		
+////		logger.trace(repository.insert(r));
+////		r.setApprover(new Employee(1, null, null, null, null, null, null));
+////		r.setStatus(new ReimbursementStatus(1,null));
+////		logger.trace(repository.update(r));
+////		logger.trace(repository.select(61));
+////		logger.trace(repository.selectPending(42));
+////		logger.trace(repository.selectFinalized(42));
+////		logger.trace(repository.selectAllPending());
+////		logger.trace(repository.selectAllFinalized());
+////		logger.trace(repository.selectTypes());
+//
+//	}
+
+
 }

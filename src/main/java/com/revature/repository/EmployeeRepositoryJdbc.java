@@ -238,4 +238,5 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 //			logger.trace(repository.getPasswordHash(employee));
 //
 //}
+
 }

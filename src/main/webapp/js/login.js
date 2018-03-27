@@ -48,6 +48,7 @@ window.onload = () => {
             //Storing key value pairs by fields
             sessionStorage.setItem("employeeId", data.id);
             sessionStorage.setItem("employeeUsername", data.username);
+            sessionStorage.setItem("employeefirstName", data.firstName);
             window.location.replace("home.do");
     
         }

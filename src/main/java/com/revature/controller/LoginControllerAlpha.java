@@ -12,7 +12,7 @@ public class LoginControllerAlpha implements LoginController {
 	
 	private static LoginController loginController = new LoginControllerAlpha();
 	
-	public LoginControllerAlpha() {}
+	private LoginControllerAlpha() {}
 	
 	public static LoginController getInstance() {
 		return loginController;

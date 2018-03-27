@@ -50,8 +50,8 @@ public class EmployeeServiceAlpha implements EmployeeService {
 
 	@Override
 	public boolean createEmployee(Employee employee) {
-		// TODO Auto-generated method stub
-		return false;
+		return repository.insert(employee);
+		
 	}
 
 	@Override

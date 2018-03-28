@@ -14,7 +14,7 @@ window.onload = () => {
             //xhr variable can be called anything, you create your xhr object
             let xhr = new XMLHttpRequest();
     
-            //before running this, have to check onreadystate change and if statement
+            //before 	running this, have to check onreadystate change and if statement
             //Add logic
             xhr.onreadystatechange = () => {
                 //If the request is DONE (4), and everything is OK
@@ -46,10 +46,25 @@ window.onload = () => {
         else {
             //Using sessionStorage of JavaScript
             //Storing key value pairs by fields
-            sessionStorage.setItem("employeeId", data.id);
-            sessionStorage.setItem("employeeUsername", data.username);
-            sessionStorage.setItem("employeefirstName", data.firstName);
-            window.location.replace("home.do");
-    
+            sessionStorage.setItem("id", data.id);
+            sessionStorage.setItem("firstName", data.firstName);
+            sessionStorage.setItem("lastName",data.lastName);
+            sessionStorage.setItem("username", data.username);
+            sessionStorage.setItem("password",data.password);
+            sessionStorage.setItem("email",data.email);
+            sessionStorage.setItem("employeeRole",JSON.stringify(data.employeeRole));
+  
+            //check if I can retrive employee role correctly or not
+            let temp = sessionStorage.getItem('employeeRole');
+            let viewEmployeeRole = JSON.parse(temp);
+            console.log(viewEmployeeRole.id);
+            console.log(viewEmployeeRole.type);
+           
+
+        if(viewEmployeeRole.id == 2)    {
+            window.location.replace("manager-home.do");
+        } else {
+        window.location.replace("employee-home.do");
         }
     }
+}

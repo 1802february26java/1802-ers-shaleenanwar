@@ -24,7 +24,15 @@ public class HomeControllerAlpha implements HomeController {
 			return "login.html";
 		}
 		
-		return "home.html";
+	
+	//return back different home page based on the role
+	if(loggedEmployee.getEmployeeRole().getId() == 2){
+		return "manager-home.html";
 	}
+	
+	else{
+		return "employee-home.html";
+	}
+}
 }
 

@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.revature.ajax.ClientMessage;
 import com.revature.model.Employee;
+import com.revature.model.EmployeeRole;
 import com.revature.service.EmployeeServiceAlpha;
 import com.revature.util.FinalUtil;
 
@@ -30,7 +31,8 @@ public class EmployeeInformationControllerAlpha implements EmployeeInformationCo
 				request.getParameter("lastName"),
 				request.getParameter("username"),
 				request.getParameter("password"),
-				request.getParameter("email")
+				request.getParameter("email"),
+				new EmployeeRole(1, "Employee")
 				); 
 				
 		

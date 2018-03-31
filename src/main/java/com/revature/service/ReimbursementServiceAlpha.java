@@ -15,6 +15,7 @@ public class ReimbursementServiceAlpha implements ReimbursementService {
 	private static ReimbursementService service = new ReimbursementServiceAlpha();
 	private static Logger logger = Logger.getLogger(ReimbursementServiceAlpha.class);
 	private ReimbursementRepository repository = ReimbursementRepositoryJdbc.getInstance();
+
 	
 	private ReimbursementServiceAlpha() {}
 	

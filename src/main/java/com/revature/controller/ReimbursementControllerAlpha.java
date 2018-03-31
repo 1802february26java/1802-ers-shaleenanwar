@@ -12,6 +12,7 @@ import com.revature.model.Reimbursement;
 import com.revature.model.ReimbursementStatus;
 import com.revature.model.ReimbursementType;
 import com.revature.service.ReimbursementServiceAlpha;
+import com.revature.util.FinalUtil;
 
 public class ReimbursementControllerAlpha implements ReimbursementController {
 	
@@ -32,7 +33,7 @@ public class ReimbursementControllerAlpha implements ReimbursementController {
 		} else if (loggedEmployee.getEmployeeRole().getId() == 2) {
 			return "manager-home.html";
 		} else if (request.getMethod() == "GET") {
-			return "reimbursement-request.html";
+			return "employee-home.html";
 		} 
 			logger.trace(loggedEmployee.toString());
 			Reimbursement reimbursement = new Reimbursement(
@@ -47,12 +48,11 @@ public class ReimbursementControllerAlpha implements ReimbursementController {
 					new ReimbursementType(Integer.parseInt(request.getParameter("reimbursementTypeId")), request.getParameter("reimbursementTypeName"))
 					);
 			if (ReimbursementServiceAlpha.getInstance().submitRequest(reimbursement)) {
-				return new ClientMessage("REIMBURSEMENT SUBMISSION SUCCESSFUL");
+				return new ClientMessage(FinalUtil.CLIENT_MESSAGE_SUCCESSFUL);
 			} else {
-				return new ClientMessage("REIMBURSEMENT SUBMISSION WENT WRONG");
+				return new ClientMessage(FinalUtil.CLIENT_MESSAGE_SOMETHING_WRONG);
 			}
 		}
-	
 	@Override
 	public Object singleRequest(HttpServletRequest request) {
 		return null;

@@ -37,7 +37,7 @@ public class EmployeeInformationControllerAlpha implements EmployeeInformationCo
 				
 		
 		if (EmployeeServiceAlpha.getInstance().createEmployee(registeredEmployee)){
-			return new ClientMessage(FinalUtil.CLIENT_MESSAGE_REGISTRATION_SUCCESSFUL);
+			return new ClientMessage(FinalUtil.CLIENT_MESSAGE_SUCCESSFUL);
 		} else {
 			return new ClientMessage(FinalUtil.CLIENT_MESSAGE_SOMETHING_WRONG);
 		}

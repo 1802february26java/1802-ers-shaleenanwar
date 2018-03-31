@@ -21,7 +21,7 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a href="employee-home.do" class="navbar-brand"><strong id="username">Home</strong></a>
+                <a href="employee-home.do" id="loggedEmployee" class="navbar-brand"><strong>Login</strong></a>
             </div>
             <ul class="nav navbar-nav">
                 <li class="dropdown">
@@ -34,9 +34,36 @@
             </ul>
             <div class="nav navbar-nav navbar-right">
                 <a href="logout.do" class="navbar-brand"><strong><small>Logout</small></strong></a>
-            </div>
         </div>
     </nav>
+    <div class="col-md-4 col-md-offset-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>Create a new reimbursement</h3>
+            </div>
+         <!--   <form id="reimbursementForm" enctype="multipart/form-data" action="submitRequest.do" method="post">  -->
+            <div class="form-group">
+                <input id="amount" name="amount" placeholder="Amount" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input id="description" name="description" placeholder="Description" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                 <h5>Select Reimbursement Type</h5>
+                    <select class="form-control" id="reimbursementType" name="reimbursementType">
+                      <option>OTHER</option>
+                      <option>COURSE</option>
+                      <option>CERTIFICATION</option>
+                      <option>TRAVELING</option>
+                    </select>
+            </div>
+			<div id="submitReimbursementMessage"></div>
+            <button id="submitReimbursementButton" class="btn btn-md btn-primary btn-block">Submit</button>
+            <div class="panel-footer">
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript files -->
+    <script src="js/reimbursement-request.js"></script>
 </body>
-<script src="js/home.js"></script>
 </html>

@@ -1,3 +1,3 @@
 window.onload = () => {
-    document.getElementById("username").innerHTML = sessionStorage.getItem("firstName");
+    document.getElementById("username").innerHTML = sessionStorage.getItem("username");
 }

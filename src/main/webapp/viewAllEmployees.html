@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View All Employees</title>
+
+    <link rel="icon" href="images/customer.ico" />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+       
+    <!-- Boostrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    
+    <!-- Boostrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="css/our.css" />
+         <!-- <style>
+     	body {
+     		background-image:url("images/notebook-page.jpg");
+     	}
+     </style> -->
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+                <div class="container-fluid">
+                        <nav class="navbar navbar-default">
+                                <div class="container-fluid">
+                                    <div class="navbar-header">
+                                        <a href="manager-home.do" class="navbar-brand"><strong id="username">Home</strong></a>
+                                        </div>  
+                                        <ul class="nav navbar-nav">
+                                                <li class="dropdown">
+                                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Operations</strong><span class="caret"></span></a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="viewReimbursements.html">View Reimbursements</a></li>
+                                                        <li><a href="viewAllEmployees.html">View All Employees</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                            <div class="nav navbar-nav navbar-right">
+                                                <a href="logout.do" class="navbar-brand"><small>Logout</small></a>
+                                </div>
+                                </div>
+            </nav>
+<div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            <table id= "table" class = "table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Role</th> 
+                        </tr>
+                    </thead>
+                        <tbody id = "employeeList"></tbody>
+                </table>
+    </div>
+    </div>
+    </div>
+
+    <script src="js/viewAllEmployees.js"></script>
+</body>
+</html>

@@ -8,7 +8,9 @@ import org.apache.log4j.Logger;
 
 import com.revature.ajax.ClientMessage;
 import com.revature.model.Employee;
+import com.revature.model.EmployeeRole;
 import com.revature.service.EmployeeServiceAlpha;
+import com.revature.util.FinalUtil;
 
 public class EmployeeInformationControllerAlpha implements EmployeeInformationController {
 
@@ -24,28 +26,28 @@ public class EmployeeInformationControllerAlpha implements EmployeeInformationCo
 
 	@Override
 	public Object registerEmployee(HttpServletRequest request) {
-		if (request.getMethod().equals("GET")){
-			logger.trace("EmployeeInformationController.registerEmployee GET");
+		if(request.getMethod().equals("GET")) {
 			return "register.html";
 		}
-		logger.trace("EmployeeInformationController.registerEmployee POST");
-
-		Employee employee = new Employee(0, request.getParameter("firstName"),
+		
+		//Logic for POST
+		
+		Employee registeredEmployee =new Employee(0,
+				request.getParameter("firstName"),
 				request.getParameter("lastName"),
 				request.getParameter("username"),
 				request.getParameter("password"),
-				request.getParameter("email"));
-
-		if (EmployeeServiceAlpha.getInstance().isUsernameTaken(employee)){
-			return new ClientMessage("USERNAME IS TAKEN");
-		}
-		if (EmployeeServiceAlpha.getInstance().createEmployee(employee)) {
-			return new ClientMessage("REGISTRATION SUCCESSFUL");
+				request.getParameter("email"),
+				new EmployeeRole(1, "Employee")
+				); 
+				
+		
+		if (EmployeeServiceAlpha.getInstance().createEmployee(registeredEmployee)){
+			return new ClientMessage(FinalUtil.CLIENT_MESSAGE_SUCCESSFUL);
 		} else {
-			return new ClientMessage("SOMETHING WENT WRONG");
+			return new ClientMessage(FinalUtil.CLIENT_MESSAGE_SOMETHING_WRONG);
 		}
 	}
-
 	@Override
 	public Object updateEmployee(HttpServletRequest request) {
 		if (request.getMethod().equals("GET")){

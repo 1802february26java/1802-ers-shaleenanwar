@@ -62,32 +62,27 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 
 	@Override
 	public boolean update(Employee employee) {
-		try (Connection connection = ConnectionUtil.getConnection())
-		{
-			final String command = "UPDATE USER_T SET U_FIRSTNAME = ?, U_LASTNAME = ? , U_EMAIL = ?, UR_ID = ? WHERE U_ID =  ?";
-			PreparedStatement statement = connection.prepareStatement(command);
-			int statementIndex = 0;
+		logger.trace("Updating new employee." + employee);
 
-			statement.setString(++statementIndex, employee.getFirstName().toUpperCase());
-			statement.setString(++statementIndex, employee.getLastName().toUpperCase());
-			statement.setString(++statementIndex, employee.getEmail().toLowerCase());
-			statement.setInt(++statementIndex, employee.getEmployeeRole().getId());
-			statement.setInt(++statementIndex, employee.getId());
-			
-			if ( statement.executeUpdate() != 0 )
-			{
-				logger.trace("Successfully updated employee");
+		try (Connection connection = ConnectionUtil.getConnection()){
+			int parameterIndex = 0;
+			String sql = "UPDATE USER_T SET U_FIRSTNAME = ?, U_LASTNAME = ?, U_USERNAME = ?, U_EMAIL =? WHERE U_ID =?";
+
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setString(++parameterIndex, employee.getFirstName());
+			statement.setString(++parameterIndex, employee.getLastName());
+			statement.setString(++parameterIndex, employee.getUsername());
+			statement.setString(++parameterIndex, employee.getEmail());
+			statement.setInt(++parameterIndex, employee.getId());
+			logger.trace(statement);
+			int num = statement.executeUpdate();
+			if (num > 0) {
+				;
+				logger.info("Update success! EmployeeRepositoryjbdc.update");
 				return true;
 			}
-			else
-			{
-				return false;
-			}
-		}
-		catch (SQLException e)
-		{
-			logger.warn("Exception updating employee", e);
-		}
+		} catch (SQLException e) {
+			logger.error("Exception at EmployeeRepository.update.", e);}
 		return false;
 	}
 

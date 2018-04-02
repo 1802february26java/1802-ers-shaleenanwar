@@ -1,6 +1,6 @@
 window.onload = () =>{
 
-    document.getElementById("username").innerHTML = sessionStorage.getItem("firstName") + " " +sessionStorage.getItem("lastName");
+    document.getElementById("username").innerHTML = sessionStorage.getItem("username");
 
     document.getElementById("pending").addEventListener("click", getAllPendingReimbursements);
 

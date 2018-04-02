@@ -153,7 +153,7 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 	}
 
 	@Override
-	public Set<Employee> selectAll() {
+	public Set<Employee> selectAll(int num) {
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			String command = "SELECT * FROM USER_T INNER JOIN USER_ROLE ON USER_T.UR_ID = USER_ROLE.UR_ID";
 			PreparedStatement statement = connection.prepareStatement(command);

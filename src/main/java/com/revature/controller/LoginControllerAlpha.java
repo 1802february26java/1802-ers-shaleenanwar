@@ -37,13 +37,6 @@ public class LoginControllerAlpha implements LoginController {
 		/* Store the customer information on the session */
 		request.getSession().setAttribute("loggedEmployee", loggedEmployee);
 		return loggedEmployee;
-
-
-		
-//		else {
-//			request.getSession().setAttribute("employee", employee);
-//			return "home.html";
-//		}
 	}
 
 

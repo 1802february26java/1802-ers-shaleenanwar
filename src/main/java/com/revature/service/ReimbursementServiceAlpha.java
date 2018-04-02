@@ -1,5 +1,7 @@
 package com.revature.service;
 
+import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
@@ -14,7 +16,7 @@ public class ReimbursementServiceAlpha implements ReimbursementService {
 
 	private static ReimbursementService service = new ReimbursementServiceAlpha();
 	private static Logger logger = Logger.getLogger(ReimbursementServiceAlpha.class);
-	private ReimbursementRepository repository = ReimbursementRepositoryJdbc.getInstance();
+	private static ReimbursementRepository repository = ReimbursementRepositoryJdbc.getInstance();
 
 	
 	private ReimbursementServiceAlpha() {}
@@ -30,43 +32,78 @@ public class ReimbursementServiceAlpha implements ReimbursementService {
 
 	@Override
 	public boolean finalizeRequest(Reimbursement reimbursement) {
-		// TODO Auto-generated method stub
-		return false;
+			return repository.update(reimbursement);
 	}
 
 	@Override
 	public Reimbursement getSingleRequest(Reimbursement reimbursement) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.select(reimbursement.getId());
 	}
-
 	@Override
 	public Set<Reimbursement> getUserPendingRequests(Employee employee) {
-		// TODO Auto-generated method stub
+		if (employee.getId() != 0){
+			Set<Reimbursement> set = new HashSet<Reimbursement>();
+			set = repository.selectPending(employee.getId());
+			if (set.size() > 0){	
+				logger.info("Successfully gathered User pending requests.");
+				return set;
+			} 
+			logger.error("Issue selecting a user's pending requests.  ReimbursementServiceAlpha.getUserPendingRequests.");
+			return null;
+		}
+		logger.error("Employee must have an ID.");
 		return null;
 	}
 
 	@Override
 	public Set<Reimbursement> getUserFinalizedRequests(Employee employee) {
-		// TODO Auto-generated method stub
+		if (employee.getId() != 0){
+			Set<Reimbursement> set = new HashSet<Reimbursement>();
+			set = repository.selectFinalized(employee.getId());
+			if (set.size() > 0){	
+				logger.info("Successfully gathered User finalized requests.");
+				return set;
+			} 
+			logger.error("Issue selecting a user's finalized requests.  ReimbursementServiceAlpha.getUserFinalizedRequests.");
+			return null;
+		}
+		logger.error("Employee must have an ID.");
 		return null;
 	}
 
 	@Override
 	public Set<Reimbursement> getAllPendingRequests() {
-		// TODO Auto-generated method stub
+		Set<Reimbursement> set = repository.selectAllPending();
+		if (set.size() > 0){	
+			logger.info("Successfully gathered all pending requests.");
+			return set;
+		} 
+		logger.error("Issue selecting all pending requests.  ReimbursementServiceAlpha.getAllPendingRequests.");
 		return null;
 	}
 
 	@Override
 	public Set<Reimbursement> getAllResolvedRequests() {
-		// TODO Auto-generated method stub
+		Set<Reimbursement> set = new HashSet<Reimbursement>();
+		set = repository.selectAllFinalized();
+		if (set.size() > 0){	
+			logger.info("Successfully gathered all resolved requests.");
+			return set;
+		} 
+		logger.error("Issue selecting all finalized requests.  ReimbursementServiceAlpha.getAllResolvedRequests.");
 		return null;
 	}
 
 	@Override
 	public Set<ReimbursementType> getReimbursementTypes() {
-		// TODO Auto-generated method stub
+		logger.trace("ReimbursementServiceAlpha.getReimbursementTypes.");
+		Set<ReimbursementType> set = new HashSet<ReimbursementType>();
+		set = repository.selectTypes();
+		if (set.size() > 0){	
+			logger.info("Successfully gathered all Types.");
+			return set;
+		} 
+		logger.error("Issue selecting all ReimbursementTypes.  ReimbursementServiceAlpha.getAllTypes");
 		return null;
 	}
 

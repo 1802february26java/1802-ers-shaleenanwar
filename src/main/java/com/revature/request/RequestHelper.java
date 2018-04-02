@@ -57,6 +57,12 @@ public class RequestHelper {
             return HomeControllerAlpha.getInstance().showEmployeeHome(request);
         case "/ERS/submit-reimbursement.do":
         	return ReimbursementControllerAlpha.getInstance().submitRequest(request);
+		case "/ERS/reimbursements.do":
+			return ReimbursementControllerAlpha.getInstance().multipleRequests(request);
+		case "/ERS/getAllEmployees.do":
+			return EmployeeInformationControllerAlpha.getInstance().viewAllEmployees(request);
+		case "/ERS/update.do":
+			return ReimbursementControllerAlpha.getInstance().finalizeRequest(request);
 		default:
 			return new ErrorControllerAlpha().showError(request);
 		}

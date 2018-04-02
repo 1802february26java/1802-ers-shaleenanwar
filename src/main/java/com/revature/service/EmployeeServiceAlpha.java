@@ -1,5 +1,6 @@
 package com.revature.service;
 
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -36,28 +37,46 @@ public class EmployeeServiceAlpha implements EmployeeService {
 		return null;
 	}
 
+
 	@Override
 	public Employee getEmployeeInformation(Employee employee) {
-		// TODO Auto-generated method stub
+		if (employee.getId() != 0){
+			int employeeID = employee.getId();
+			Employee emp = repository.select(employeeID);
+			logger.info("Employee " + employeeID + " acquired.");
+			return emp;
+		}
+		logger.error("Error acquiring employee information. EmployeeServiceAlpha.getEmployeeInformation.");
 		return null;
 	}
 
 	@Override
-	public Set<Employee> getAllEmployeesInformation() {
-		// TODO Auto-generated method stub
+	public Set<Employee> getAllEmployeesInformation(int num) {
+		Set<Employee> allEmployees = repository.selectAll(num);
+		if (allEmployees.size() > 0){
+			logger.info("All employees Acquired.");
+			logger.trace(allEmployees);
+			return allEmployees;
+		}
+		logger.error("Error acquiring all Employees Information. EmployeeServiceAlpha.getAllEmployeesInformation.");
 		return null;
 	}
 
 	@Override
 	public boolean createEmployee(Employee employee) {
 		return repository.insert(employee);
-		
 	}
 
 	@Override
 	public boolean updateEmployeeInformation(Employee employee) {
-		// TODO Auto-generated method stub
-		return false;
+		if (repository.update(employee)){
+			logger.info("Employee Updated EmployeeServiceAlpha.updateEmployee!");
+			return true;
+		} else {
+			logger.error("Employee update failed. =(");
+			return false;
+		}
+		
 	}
 
 	@Override

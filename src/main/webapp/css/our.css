@@ -3,7 +3,7 @@ a {
 }
 
 .navbar-default {
-    background-color: black;
+    background-color: teal;
 }
 
 .navbar-default .navbar-brand {
@@ -11,7 +11,7 @@ a {
 }
 
 .navbar-default .navbar-brand:hover {
-    color: #d2d2d2;
+    color: white;
 }
 
 .btn-block {
@@ -40,4 +40,14 @@ a {
 
 .list-group-item {
     text-align: center;
+}
+
+body {
+    background-color: rgb(199, 183, 209);
+}
+.panel{
+    background-color:darkgray;
+}
+.custom-select{
+    border: gray;
 }

@@ -1,9 +1,9 @@
 window.onload = () =>{
     document.getElementById("loggedEmployee").innerHTML = sessionStorage.getItem("username");
-    document.getElementById("firstName").innerHTML = "First Name: " + sessionStorage.getItem("firstName");
-    document.getElementById("lastName").innerHTML = "Last Name: " + sessionStorage.getItem("lastName");
-    document.getElementById("userName").innerHTML = "Username: " + sessionStorage.getItem("username");
-    document.getElementById("email").innerHTML = "Email: " + sessionStorage.getItem("email");
+    document.getElementById("firstName").innerHTML = " " + sessionStorage.getItem("firstName");
+    document.getElementById("lastName").innerHTML = " " + sessionStorage.getItem("lastName");
+    document.getElementById("userName").innerHTML = " " + sessionStorage.getItem("username");
+    document.getElementById("email").innerHTML = " " + sessionStorage.getItem("email");
 
 document.getElementById("submit").addEventListener("click", () => {
     let firstname = document.getElementById("firstNameText").value;
